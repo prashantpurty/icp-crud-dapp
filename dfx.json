@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "my_crud_dapp_backend": {
+      "candid": "src/my_crud_dapp_backend/my_crud_dapp_backend.did",
+      "package": "my_crud_dapp_backend",
+      "type": "rust"
+    },
+    "my_crud_dapp_frontend": {
+      "dependencies": [
+        "my_crud_dapp_backend"
+      ],
+      "source": [
+        "src/my_crud_dapp_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "my_crud_dapp_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
