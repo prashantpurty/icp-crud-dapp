@@ -1,7 +1,7 @@
 {
   "canisters": {
     "my_crud_dapp_backend": {
-      "candid": "src/my_crud_dapp_backend/my_crud_dapp_backend.did",
+      "candid": "src/my_crud_dapp_backend/src/my_crud_dapp_backend.did",
       "package": "my_crud_dapp_backend",
       "type": "rust"
     },

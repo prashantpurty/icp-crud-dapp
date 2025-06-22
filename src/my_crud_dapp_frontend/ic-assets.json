@@ -1,0 +1,6 @@
+[{
+  "match": "**/*",
+  "headers": {
+    "Content-Security-Policy": "connect-src 'self' https://ic0.app https://*.ic0.app"
+  }
+}]

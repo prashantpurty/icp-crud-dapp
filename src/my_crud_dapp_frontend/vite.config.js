@@ -1,13 +1,16 @@
 import { defineConfig } from 'vite';
-import { fileURLToPath, URL } from 'url';
+import react from '@vitejs/plugin-react';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import environment from 'vite-plugin-environment';
 import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config({ path: '../../.env' });
 
 export default defineConfig({
   build: {
-    emptyOutDir: true,
+    outDir: 'dist',
+    assetsDir: 'assets'
   },
   optimizeDeps: {
     esbuildOptions: {
@@ -28,14 +31,16 @@ export default defineConfig({
   plugins: [
     environment("all", { prefix: "CANISTER_" }),
     environment("all", { prefix: "DFX_" }),
+    react(),
+    nodePolyfills({
+      globals: { Buffer: false }
+    })
   ],
+   define: { global: {} },
   resolve: {
     alias: [
       {
-        find: "declarations",
-        replacement: fileURLToPath(
-          new URL("../declarations", import.meta.url)
-        ),
+       declarations: path.resolve(__dirname, '../../../declarations'),
       },
     ],
     dedupe: ['@dfinity/agent'],

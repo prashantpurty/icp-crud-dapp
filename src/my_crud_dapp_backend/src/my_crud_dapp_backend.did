@@ -1,0 +1,7 @@
+type Item = record { id : nat64; content : text };
+service : {
+  create_item : (nat64, text) -> ();
+  delete_item : (nat64) -> (bool);
+  read_item : (nat64) -> (opt Item) query;
+  update_item : (nat64, text) -> (bool);
+}
